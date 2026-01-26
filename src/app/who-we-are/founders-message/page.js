@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
-import Leadership from '../../../components/foundation/Leadership';
 
 export const metadata = {
     title: 'Founder\'s Message | Who We Are | MercyBeacon',
@@ -13,7 +12,7 @@ export default function FoundersMessagePage() {
             <div className="bg-[#1f3249] text-white py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">Founder&apos;s Message</h1>
                 <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 relative z-10">
-                    A word from the leadership.
+                    A message from our founder.
                 </p>
             </div>
 
@@ -41,7 +40,6 @@ export default function FoundersMessagePage() {
                     </div>
                 </div>
 
-                <Leadership />
             </div>
         </main>
     );
