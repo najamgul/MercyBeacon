@@ -1,64 +1,46 @@
 import React from "react";
 import {
   FaShieldAlt,
-  FaRegNewspaper,
-  FaGlobeAmericas,
-  FaUserShield,
+  FaArrowRight,
   FaBookOpen,
   FaHeartbeat,
   FaHandsHelping,
   FaChartPie,
   FaCheckCircle,
-  FaArrowRight,
 } from "react-icons/fa";
-
-const SectionHeader = ({ eyebrow, title, description }) => (
-  <div className="text-center mb-12">
-    {eyebrow && (
-      <p className="text-sm font-semibold text-[#2c798e] uppercase tracking-wide mb-2">
-        {eyebrow}
-      </p>
-    )}
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-      {title}
-    </h2>
-    {description && (
-      <p className="text-lg text-gray-600 max-w-3xl mx-auto">{description}</p>
-    )}
-  </div>
-);
+import Section from "./ui/Section";
+import Container from "./ui/Container";
+import SectionHeader from "./ui/SectionHeader";
+import Card from "./ui/Card";
+import Button from "./ui/Button";
 
 const LegacyStrip = () => (
-  <section id="legacy" className="bg-[#e6f3f6] border-y-2 border-[#c7e2e8]">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+  <Section id="legacy" bg="teal" className="!py-6 border-y-2 border-[#c7e2e8]">
+    <Container className="flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <FaShieldAlt className="text-[#2c798e] text-2xl" />
         <p className="text-gray-900 font-semibold">
-          Serving communities since 1988 under Shams-ul-Huda Educational &amp;
-          Research Trust.
+          Serving communities since 1988 under SHER Trust.
         </p>
       </div>
       <p className="text-gray-700 text-sm md:text-base">
         MercyBeacon International Foundation builds on this legacy to expand
         healthcare access, education continuity, and dignified family support.
       </p>
-    </div>
-  </section>
+    </Container>
+  </Section>
 );
 
 const SpotlightSection = () => (
-  <section
-    id="community-protection"
-    className="bg-white py-16 border-b border-gray-100"
-  >
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <Section id="community-protection">
+    <Container>
       <SectionHeader
         eyebrow="Featured Spotlight"
         title="Public Health Protection"
         description="Addressing harmful food adulteration risks through awareness and community action."
       />
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 shadow-sm">
+        <Card border={true}>
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">
             What We Are Highlighting
           </h3>
@@ -81,79 +63,66 @@ const SpotlightSection = () => (
               <span>Partnerships for public health protection.</span>
             </li>
           </ul>
-        </div>
-        <div className="bg-[#1f3249] text-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold mb-4">How You Can Help</h3>
-          <p className="mb-6 opacity-90">
-            Join prevention campaigns, share verified information, and support
-            households most at risk from unsafe food supplies.
-          </p>
+        </Card>
+
+        <div className="bg-[#1f3249] text-white rounded-2xl p-8 shadow-lg flex flex-col justify-between">
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">How You Can Help</h3>
+            <p className="mb-6 opacity-90">
+              Join prevention campaigns, share verified information, and support
+              households most at risk from unsafe food supplies.
+            </p>
+          </div>
           <div className="space-y-3">
-            <a
-              href="#news"
-              className="flex items-center justify-between bg-white/10 hover:bg-white/20 rounded-xl px-4 py-3 transition"
-            >
+            <Button href="#news" variant="white" className="w-full justify-between">
               <span>Read the latest field updates</span>
               <FaArrowRight />
-            </a>
-            <a
-              href="#get-involved"
-              className="flex items-center justify-between bg-white text-[#2c798e] font-semibold rounded-xl px-4 py-3 transition hover:-translate-y-0.5"
-            >
+            </Button>
+            <Button href="#get-involved" variant="secondary" className="w-full justify-between bg-white text-[#2c798e] border-white hover:bg-white/90">
               <span>Partner with our community protection work</span>
               <FaArrowRight />
-            </a>
+            </Button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </Container>
+  </Section>
 );
 
 const WhatWeDoSection = () => {
   const items = [
     {
       icon: FaBookOpen,
-      title: "Education",
+      title: "Quality Education",
       problem:
-        "Children lose education because of fees, uniforms, transport, or household instability.",
+        "Scholarships and student support, school supply drives, teacher development, digital learning, and career guidance.",
       action:
-        "School fee support, tuition continuity, higher education assistance, and back-to-school essentials.",
+        "We provide comprehensive educational support to ensure no child is left behind due to financial constraints.",
       outcome:
-        "Keeps students enrolled, reduces dropout risk, and protects long-term learning.",
+        "Keeps students enrolled, improves literacy, and prepares youth for future careers.",
       color: "blue",
     },
     {
       icon: FaHeartbeat,
-      title: "Healthcare & Relief",
+      title: "Cutting-Edge Healthcare",
       problem:
-        "Families delay care when they cannot afford medicines, diagnostics, or essentials.",
+        "Preventive camps, early detection, health education, diagnostics support, and advanced research.",
       action:
-        "Support for basic healthcare, food kits during hardship, and wellbeing initiatives that lower risk.",
+        "We bridge the gap in healthcare access through direct support, partnerships, and scientific research.",
       outcome:
-        "Enables timely treatment and stabilizes households during crises.",
+        "Enables early diagnosis, reduces disease burden, and promotes long-term community wellness.",
       color: "teal",
     },
     {
       icon: FaHandsHelping,
-      title: "Women & Family Support",
+      title: "Community Outreach",
       problem:
-        "Vulnerable households face financial and social barriers that affect dignity and stability.",
+        "Vulnerable families support, emergency relief, women empowerment, and senior citizen care.",
       action:
-        "Need-based family assistance, girls’ education continuity, and dignified support for marriages with safeguards.",
+        "We deliver dignified support to families in crisis while building long-term resilience and empowerment.",
       outcome:
-        "Protects dignity, keeps families stable, and helps children remain in school.",
+        "Stabilizes households, protects the vulnerable, and fosters community strength.",
       color: "orange",
-    },
-    {
-      icon: FaUserShield,
-      title: "Community Protection",
-      problem: "Public health threats and social harms often go unchecked.",
-      action:
-        "Prevention campaigns, community mobilization, and advocacy on food safety and social harm prevention.",
-      outcome:
-        "Reduces risk, informs communities, and builds protection systems together.",
-      color: "green",
     },
   ];
 
@@ -165,112 +134,49 @@ const WhatWeDoSection = () => {
   };
 
   return (
-    <section id="what-we-do" className="bg-gray-50 py-16 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="what-we-do" bg="gray">
+      <Container>
         <SectionHeader
           eyebrow="What We Do"
-          title="Designed for impact at the household level"
-          description="Each focus area is built to solve a clear problem with practical actions and measurable outcomes."
+          title="Key Focus Areas"
+          description="We focus on three critical pillars to drive sustainable development and community well-being."
         />
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {items.map((item) => (
-            <div
+            <Card
               key={item.title}
-              className={`${colorMap[item.color]} border-2 rounded-2xl p-6 shadow-sm`}
+              className={`${colorMap[item.color]} border-2 flex flex-col h-full`}
+              hover={true}
+              border={false}
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="bg-white border border-gray-200 rounded-xl p-3 shadow">
+                <div className="bg-white border border-gray-200 rounded-xl p-3 shadow shrink-0">
                   <item.icon className="text-2xl text-gray-900" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-500 uppercase">
+                  <h3 className="text-xl font-bold text-gray-900 mt-1">
                     {item.title}
-                  </p>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    Problem we solve
                   </h3>
                 </div>
               </div>
-              <p className="text-gray-700 mb-4">{item.problem}</p>
+              <p className="text-gray-700 mb-6 flex-1 italic">
+                {item.problem}
+              </p>
+
               <div className="bg-white rounded-xl p-4 border border-gray-200 mb-4">
                 <p className="text-sm font-semibold text-gray-500 uppercase mb-2">
-                  What we do
+                  Our Approach
                 </p>
-                <p className="text-gray-800">{item.action}</p>
+                <p className="text-gray-800 text-sm">{item.action}</p>
               </div>
-              <p className="text-gray-800 font-semibold">
-                How it helps: {item.outcome}
+              <p className="text-gray-800 font-semibold text-sm">
+                Impact: {item.outcome}
               </p>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
-
-const ProgramsSection = () => {
-  const programs = [
-    {
-      title: "Sponsor a Student",
-      detail:
-        "Covers fees, tuition, books, and transport for deserving students with verification and sponsor tiers.",
-    },
-    {
-      title: "Education Continuity Fund",
-      detail:
-        "Emergency support to prevent dropout when families face sudden hardship.",
-    },
-    {
-      title: "Medical Support Fund",
-      detail:
-        "Diagnostics, medicines, and urgent medical assistance with basic due diligence.",
-    },
-    {
-      title: "Food & Essential Kits",
-      detail:
-        "Winter hardship and crisis-period deployments with transparent kit lists.",
-    },
-    {
-      title: "Community Protection Initiatives",
-      detail:
-        "Drug prevention and food safety/public health awareness backed by evidence.",
-    },
-  ];
-
-  return (
-    <section id="programs" className="bg-white py-16 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Programs"
-          title="Dedicated pathways to support and protect communities"
-          description="Structured programs make it easier to sponsor education, enable medical care, deploy relief kits, and drive prevention campaigns."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {programs.map((program) => (
-            <div
-              key={program.title}
-              className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col gap-3"
-            >
-              <div className="flex items-center gap-3">
-                <FaGlobeAmericas className="text-[#2c798e]" />
-                <h3 className="text-xl font-semibold text-gray-900">
-                  {program.title}
-                </h3>
-              </div>
-              <p className="text-gray-700 flex-1">{program.detail}</p>
-              <a
-                href="#support"
-                className="inline-flex items-center gap-2 text-[#2c798e] font-semibold hover:text-[#255f71]"
-              >
-                Learn more
-                <FaArrowRight />
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
@@ -303,65 +209,64 @@ const ImpactSection = () => {
   ];
 
   return (
-    <section id="impact" className="bg-gray-50 py-16 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="impact" bg="gray">
+      <Container>
         <SectionHeader
           eyebrow="Impact"
           title="Impact snapshot and stories"
           description="Verified numbers and field stories guide where support is needed most. Placeholder values shown until live data is connected."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
           {stats.map((stat) => (
-            <div
+            <Card
               key={stat.label}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-4 text-center shadow-sm"
+              className="text-center p-4"
+              hover={false}
+              border={true}
             >
               <p className={`${stat.color} text-2xl font-bold`}>{stat.value}</p>
               <p className="text-gray-700 text-sm">{stat.label}</p>
-            </div>
+            </Card>
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {stories.map((story) => (
-            <div
-              key={story.title}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-sm"
-            >
+            <Card key={story.title} className="bg-white" hover={true}>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {story.title}
               </h3>
               <dl className="space-y-3 text-gray-800">
                 <div>
-                  <dt className="font-semibold">Situation</dt>
+                  <dt className="font-semibold text-sm text-[#2c798e]">Situation</dt>
                   <dd>{story.situation}</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold">Support provided</dt>
+                  <dt className="font-semibold text-sm text-[#2c798e]">Support provided</dt>
                   <dd>{story.support}</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold">Outcome</dt>
+                  <dt className="font-semibold text-sm text-[#2c798e]">Outcome</dt>
                   <dd>{story.outcome}</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold">Next steps</dt>
+                  <dt className="font-semibold text-sm text-[#2c798e]">Next steps</dt>
                   <dd>{story.next}</dd>
                 </div>
               </dl>
-            </div>
+            </Card>
           ))}
         </div>
 
-        <div className="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center text-gray-700">
+        <div className="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center text-gray-700 max-w-2xl mx-auto">
           <p className="font-semibold text-gray-900 mb-2">Story template</p>
           <p>
             Situation → Support provided → Outcome → Next steps. Use this
             template when publishing new impact stories with photos and evidence.
           </p>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
@@ -391,8 +296,8 @@ const UpdatesSection = () => {
   ];
 
   return (
-    <section id="news" className="bg-white py-16 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="news">
+      <Container>
         <SectionHeader
           eyebrow="News & Stories"
           title="Latest updates"
@@ -400,9 +305,10 @@ const UpdatesSection = () => {
         />
         <div className="grid md:grid-cols-3 gap-6">
           {updates.map((update) => (
-            <article
+            <Card
               key={update.title}
-              className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col"
+              className="bg-gray-50 flex flex-col h-full"
+              border={true}
             >
               <span className="inline-flex w-fit px-3 py-1 text-xs font-semibold bg-[#d3e8ed] text-[#1f3249] rounded-full mb-3">
                 {update.category}
@@ -410,19 +316,15 @@ const UpdatesSection = () => {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {update.title}
               </h3>
-              <p className="text-gray-700 flex-1">{update.summary}</p>
-              <a
-                href={update.link}
-                className="mt-4 inline-flex items-center gap-2 text-[#2c798e] font-semibold hover:text-[#255f71]"
-              >
-                Read more
-                <FaArrowRight />
-              </a>
-            </article>
+              <p className="text-gray-700 flex-1 mb-4">{update.summary}</p>
+              <Button href={update.link} variant="ghost" className="!p-0 !justify-start hover:bg-transparent hover:gap-2">
+                Read more <FaArrowRight />
+              </Button>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
@@ -448,17 +350,14 @@ const TransparencySection = () => {
       items: [
         "Annual reports and audit reports (PDF uploads)",
         "Donation allocation chart (program vs admin)",
-        "Legacy statement: MercyBeacon builds on Shams-ul-Huda Educational & Research Trust service since 1988.",
+        "Legacy statement: MercyBeacon builds on SHER Trust service since 1988.",
       ],
     },
   ];
 
   return (
-    <section
-      id="transparency"
-      className="bg-gray-50 py-16 border-b border-gray-100"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="transparency" bg="gray">
+      <Container>
         <SectionHeader
           eyebrow="Transparency"
           title="Governance, policies, and financials"
@@ -466,26 +365,25 @@ const TransparencySection = () => {
         />
         <div className="grid md:grid-cols-3 gap-6">
           {columns.map((column) => (
-            <div
+            <Card
               key={column.title}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-6 shadow-sm"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-4">
                 <FaChartPie className="text-[#2c798e]" />
                 <h3 className="text-lg font-semibold text-gray-900">
                   {column.title}
                 </h3>
               </div>
-              <ul className="space-y-2 text-gray-700 list-disc list-inside">
+              <ul className="space-y-3 text-gray-700 list-disc list-inside">
                 {column.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="leading-snug">{item}</li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
@@ -518,11 +416,8 @@ const GetInvolvedSection = () => {
   ];
 
   return (
-    <section
-      id="get-involved"
-      className="bg-white py-16 border-b border-gray-100"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="get-involved">
+      <Container>
         <SectionHeader
           eyebrow="Get Involved"
           title="Ways you can help"
@@ -530,26 +425,22 @@ const GetInvolvedSection = () => {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {actions.map((action) => (
-            <div
+            <Card
               key={action.title}
-              className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-5 shadow-sm flex flex-col"
+              className="flex flex-col h-full bg-gray-50 border-gray-200"
             >
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {action.title}
               </h3>
-              <p className="text-gray-700 flex-1">{action.description}</p>
-              <a
-                href={action.href}
-                className="mt-3 inline-flex items-center gap-2 text-[#2c798e] font-semibold hover:text-[#255f71]"
-              >
-                Take action
-                <FaArrowRight />
-              </a>
-            </div>
+              <p className="text-gray-700 flex-1 mb-4">{action.description}</p>
+              <Button href={action.href} variant="ghost" className="!p-0 !justify-start hover:bg-transparent hover:gap-2">
+                Take action <FaArrowRight />
+              </Button>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
@@ -558,7 +449,6 @@ const HomeSections = () => (
     <LegacyStrip />
     <SpotlightSection />
     <WhatWeDoSection />
-    <ProgramsSection />
     <ImpactSection />
     <UpdatesSection />
     <TransparencySection />
