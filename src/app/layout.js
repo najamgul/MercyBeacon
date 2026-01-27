@@ -14,13 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://mercybeacon.org"),
   title: "MercyBeacon International Foundation",
-  description:
-    "MercyBeacon International Foundation lights lives through healthcare, education, and dignity—built on a legacy of service since 1988.",
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+  description: "Empowering communities through education, healthcare, and outreach.",
+  openGraph: {
+    title: "MercyBeacon International Foundation",
+    description: "Empowering communities through education, healthcare, and outreach.",
+    url: "https://mercybeacon.org",
+    siteName: "MercyBeacon",
+    type: "website",
   },
 };
 
