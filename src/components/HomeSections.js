@@ -258,13 +258,7 @@ const ImpactSection = () => {
           ))}
         </div>
 
-        <div className="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center text-gray-700 max-w-2xl mx-auto">
-          <p className="font-semibold text-gray-900 mb-2">Story template</p>
-          <p>
-            Situation → Support provided → Outcome → Next steps. Use this
-            template when publishing new impact stories with photos and evidence.
-          </p>
-        </div>
+
       </Container>
     </Section>
   );
